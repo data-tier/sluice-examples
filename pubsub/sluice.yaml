@@ -1,0 +1,27 @@
+listen_addr: "0.0.0.0:8080"
+drain_timeout_secs: 10
+
+bus:
+  type: pubsub
+  project_id: "demo-project"
+  endpoint: "http://pubsub-emulator:8085"
+
+schema_override:
+  schemas_dir: "/schemas"
+
+topics:
+  user-events:
+    validation:
+      enabled: true
+      required_fields: [user_id, event_type]
+    ordering:
+      enabled: true
+      partition_key_header: x-user-id
+      idle_ttl_secs: 10
+
+  page-views:
+    validation:
+      enabled: true
+      required_fields: [url, session_id]
+
+  system-metrics: {}

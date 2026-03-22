@@ -1,0 +1,29 @@
+listen_addr: "0.0.0.0:8080"
+drain_timeout_secs: 10
+
+bus:
+  type: kafka
+  bootstrap_servers: "kafka:9092"
+  acks: "all"
+  linger_ms: 5
+  batch_size: 65536
+
+schema_override:
+  schemas_dir: "/schemas"
+
+topics:
+  user-events:
+    validation:
+      enabled: true
+      required_fields: [user_id, event_type]
+    ordering:
+      enabled: true
+      partition_key_header: x-user-id
+      idle_ttl_secs: 10
+
+  page-views:
+    validation:
+      enabled: true
+      required_fields: [url, session_id]
+
+  system-metrics: {}

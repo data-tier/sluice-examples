@@ -1,0 +1,9 @@
+{
+  "type": "object",
+  "properties": {
+    "url": { "type": "string" },
+    "session_id": { "type": "string" },
+    "referrer": { "type": "string" },
+    "timestamp": { "type": "string" }
+  }
+}
