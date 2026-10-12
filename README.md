@@ -11,7 +11,7 @@ docker compose --profile kafka up
 ```
 
 This starts:
-- Kafka broker (bitnami/kafka) on port 9092
+- Kafka broker (apache/kafka) on port 9092
 - Creates topics: user-events, page-views, system-metrics
 - Sluice gateway on port 8080
 
